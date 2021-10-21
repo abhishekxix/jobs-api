@@ -15,7 +15,7 @@ const JobSchema = new mongoose.Schema(
     status: {
       type: String,
       enum: ['interview', 'declined', 'pending'],
-      defalut: 'pending',
+      default: 'pending',
     },
     createdBy: {
       type: mongoose.Types.ObjectId,
@@ -23,7 +23,9 @@ const JobSchema = new mongoose.Schema(
       required: [true, 'Please provide a user'],
     },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 )
 
 module.exports = mongoose.model('Job', JobSchema)
